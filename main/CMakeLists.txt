@@ -1,0 +1,10 @@
+idf_component_register(
+    SRCS
+        "main.c"
+        "../Src/SPI_Drv.c"
+    INCLUDE_DIRS
+        "."
+        "../Inc"
+    REQUIRES
+        driver
+)
