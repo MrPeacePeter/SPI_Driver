@@ -38,11 +38,17 @@ esp_err_t spi_drv_close(void);
 /**
  * @brief Transmit data over SPI - Full Duplex.
  * @param tx_data Pointer to data buffer to transmit.
- * @param rx_data Pointer to data buffer to receive data.
  * @param length Length of data in bytes.
  * @return ESP_OK if transmission was successful, ESP_FAIL otherwise.
  */
-esp_err_t spi_drv_transmit(const uint8_t *tx_data, uint8_t *rx_data, size_t length);
+esp_err_t spi_drv_transmit(const uint8_t *tx_data, size_t length);
+
+/**
+ * @brief Transmit data over SPI - Full Duplex.
+ * @param rx_data Pointer to data buffer to receive data.
+ * @return ESP_OK if transmission was successful, ESP_FAIL otherwise.
+ */
+esp_err_t spi_drv_receiver(uint8_t *rx_data); 
 
 /**
  * @brief Check if SPI bus is currently open.
