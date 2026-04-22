@@ -54,7 +54,7 @@ esp_err_t spi_drv_transmit(const uint8_t *tx_data, size_t length){
     
     spi_transaction_t t;
 
-    snprintf(*tx_data, sizeof(*tx_data), )
+    snprintf(*tx_data, sizeof(*tx_data), );
 
 
 }
