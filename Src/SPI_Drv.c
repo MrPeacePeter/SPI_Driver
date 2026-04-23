@@ -50,7 +50,7 @@ esp_err_t spi_drv_open (void){
     return ESP_OK;
 }
 
-esp_err_t spi_drv_transceive(const uint8_t *tx_data, uint8_t *rx_data, size_t length){
+/*esp_err_t spi_drv_transceive(const uint8_t *tx_data, uint8_t *rx_data, size_t length){
     ESP_LOGI(TAG, "SPI Transmiting");
     
     spi_transaction_t t;
@@ -58,4 +58,4 @@ esp_err_t spi_drv_transceive(const uint8_t *tx_data, uint8_t *rx_data, size_t le
     //snprintf(*tx_data, sizeof(*tx_data), );
 
 
-}
+}*/
