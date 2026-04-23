@@ -1,6 +1,10 @@
 /**
  * @file SPI_Drv.h
  * @brief Hardware SPI driver interface.
+ * 
+ * Driver SPI with defined pins on the implemention.
+ * SPI-Like communication over GPIO.
+ * 
  * @author Pedro Henrique Elias Paz
  */
 
@@ -11,8 +15,6 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#include "driver/spi_master.h"
-#include "driver/gpio.h"
 #include "esp_err.h"
 
 #ifdef __cplusplus
@@ -25,35 +27,30 @@ extern "C" {
 
 /**
  * @brief Open and configure SPI bus and device.
- * @param cfg Pointer to SPI configuration structure.
  * @return ESP_OK if SPI bus and device were successfully opened, ESP_FAIL otherwise.
  */
 esp_err_t spi_drv_open(void);
 
 /**
  * @brief Close SPI bus and device.
+ * @return ESP_OK if SPI bus and device were successfully opened, ESP_FAIL otherwise.
  */
 esp_err_t spi_drv_close(void);
 
 /**
- * @brief Transmit data over SPI - Full Duplex.
+ * @brief Full-Duplex of SPI communication.
  * @param tx_data Pointer to data buffer to transmit.
+ * @param rx_data Pointer to data buffer to receive data.
  * @param length Length of data in bytes.
  * @return ESP_OK if transmission was successful, ESP_FAIL otherwise.
  */
-esp_err_t spi_drv_transmit(const uint8_t *tx_data, size_t length);
-
-/**
- * @brief Transmit data over SPI - Full Duplex.
- * @param rx_data Pointer to data buffer to receive data.
- * @return ESP_OK if transmission was successful, ESP_FAIL otherwise.
- */
-esp_err_t spi_drv_receiver(uint8_t *rx_data); 
+esp_err_t spi_drv_transceive(const uint8_t *tx_data, uint8_t *rx_data, size_t length);
 
 /**
  * @brief Check if SPI bus is currently open.
+ * @return True if SPI is open, False if SPI is close.
  */
-void spi_drv_is_open(void);
+bool spi_drv_is_open(void);
 
 #ifdef __cplusplus
 }

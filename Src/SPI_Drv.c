@@ -19,11 +19,12 @@
 
 #define TAG "SPI_DRIVER"
 
+spi_device_handle_t handle;
+
+
 esp_err_t spi_drv_open (void){
     
     ESP_LOGI(TAG, "Opening SPI peripheral");
-    
-    spi_device_handle_t handle;
 
     spi_bus_config_t spi_config = {
         .mosi_io_num = SPI_PIN_MOSI,
@@ -49,12 +50,12 @@ esp_err_t spi_drv_open (void){
     return ESP_OK;
 }
 
-esp_err_t spi_drv_transmit(const uint8_t *tx_data, size_t length){
+esp_err_t spi_drv_transceive(const uint8_t *tx_data, uint8_t *rx_data, size_t length){
     ESP_LOGI(TAG, "SPI Transmiting");
     
     spi_transaction_t t;
 
-    snprintf(*tx_data, sizeof(*tx_data), );
+    //snprintf(*tx_data, sizeof(*tx_data), );
 
 
 }
