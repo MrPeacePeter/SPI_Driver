@@ -1,9 +1,9 @@
 idf_component_register(
     SRCS
         "main.c"
+        "main_master.c"
+        "main_slave.c"
         "../Src/SPI_Drv.c"
-        "../Src/SPI_MasterDrv.c"
-        "../Src/SPI_SlaveDrv.c"
     INCLUDE_DIRS
         "."
         "../Inc"
