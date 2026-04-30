@@ -27,7 +27,7 @@ void app_main(void)
 
     ESP_LOGI(TAG, "SPI Master started");
 
-    uint8_t tx_buf[4] = {0xAA, 0x55, 0x12, 0x34};
+    uint8_t tx_buf[] = "Master - Test";
     uint8_t rx_buf[4] = {0};
 
     while (1)
@@ -35,9 +35,7 @@ void app_main(void)
         ret = spi_transceive(tx_buf, rx_buf, sizeof(tx_buf));
         if (ret == ESP_OK)
         {
-            ESP_LOGI(TAG,
-                     "RX: %02X %02X %02X %02X",
-                     rx_buf[0], rx_buf[1], rx_buf[2], rx_buf[3]);
+            ESP_LOGI(TAG, "RX Texto: %s", rx_buf);
         }
         else
         {

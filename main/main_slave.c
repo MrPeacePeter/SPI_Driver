@@ -13,8 +13,8 @@ void app_main(void)
 
     spi_config_t spi_cfg = {
         .role      = SPI_ROLE_SLAVE,
-        .mode      = 0,   // Deve ser o mesmo do Master
-        .bit_order = 0    // Deve ser o mesmo do Master
+        .mode      = 0,   
+        .bit_order = 0    
     };
 
     ret = spi_open(&spi_cfg);
@@ -26,7 +26,7 @@ void app_main(void)
 
     ESP_LOGI(TAG, "SPI Slave started");
 
-    uint8_t tx_buf[4] = {0xDE, 0xAD, 0xBE, 0xEF};
+    uint8_t tx_buf[] = "Slave - Test";
     uint8_t rx_buf[4] = {0};
 
     while (1)
@@ -36,9 +36,7 @@ void app_main(void)
         ret = spi_transceive(tx_buf, rx_buf, sizeof(tx_buf));
         if (ret == ESP_OK)
         {
-            ESP_LOGI(TAG,
-                     "RX: %02X %02X %02X %02X",
-                     rx_buf[0], rx_buf[1], rx_buf[2], rx_buf[3]);
+            ESP_LOGI(TAG, "RX Texto: %s", rx_buf);
         }
         else
         {
