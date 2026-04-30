@@ -23,11 +23,10 @@
 
 static const char *TAG = "SPI";
 
-/* You may adjust these pins as needed */
-#define SPI_MOSI_PIN 23
-#define SPI_MISO_PIN 19
-#define SPI_SCLK_PIN 18
-#define SPI_CS_PIN   5
+#define SPI_MOSI_PIN 39
+#define SPI_MISO_PIN 36
+#define SPI_SCLK_PIN 37
+#define SPI_CS_PIN   35
 
 #define SPI_HOST_USED SPI2_HOST
 
