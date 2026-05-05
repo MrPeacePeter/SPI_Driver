@@ -1,5 +1,5 @@
 #define SPI_BUILD_MASTER   1
-// #define SPI_BUILD_SLAVE  1
+//#define SPI_BUILD_SLAVE  1
 
 #if defined(SPI_BUILD_MASTER)
 #include "main_master.c"

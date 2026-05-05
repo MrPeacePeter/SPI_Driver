@@ -5,6 +5,8 @@
 
 #include "SPI_Drv.h"
 
+#define SPI_MAX_BUFFER_SIZE 32
+
 static const char *TAG = "MASTER";
 
 void app_main(void)
@@ -27,11 +29,13 @@ void app_main(void)
 
     ESP_LOGI(TAG, "SPI Master started");
 
-    uint8_t tx_buf[] = "Master - Test";
-    uint8_t rx_buf[4] = {0};
+    uint8_t tx_buf[SPI_MAX_BUFFER_SIZE] = "Master - Test";
+    uint8_t rx_buf[SPI_MAX_BUFFER_SIZE] = {0};
 
     while (1)
     {
+        ESP_LOGI(TAG, "TX Texto: %s", tx_buf);
+        
         ret = spi_transceive(tx_buf, rx_buf, sizeof(tx_buf));
         if (ret == ESP_OK)
         {

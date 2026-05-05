@@ -5,6 +5,8 @@
 
 #include "SPI_Drv.h"
 
+#define SPI_MAX_BUFFER_SIZE 32
+
 static const char *TAG = "SLAVE";
 
 void app_main(void)
@@ -26,8 +28,8 @@ void app_main(void)
 
     ESP_LOGI(TAG, "SPI Slave started");
 
-    uint8_t tx_buf[] = "Slave - Test";
-    uint8_t rx_buf[4] = {0};
+    uint8_t tx_buf[SPI_MAX_BUFFER_SIZE] = "Slave - Test";
+    uint8_t rx_buf[SPI_MAX_BUFFER_SIZE] = {0};
 
     while (1)
     {

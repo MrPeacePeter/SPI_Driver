@@ -124,7 +124,7 @@ esp_err_t spi_open(const spi_config_t *cfg)
             .flags = (cfg->bit_order == 1) ? SPI_SLAVE_TXBIT_LSBFIRST | SPI_SLAVE_RXBIT_LSBFIRST : 0
         };
 
-        ret = spi_slave_initialize(SPI_HOST_USED, &buscfg, &slvcfg, SPI_DMA_CH_AUTO);
+        ret = spi_slave_initialize(SPI_HOST_USED, &buscfg, &slvcfg, SPI_DMA_DISABLED);
         if (ret != ESP_OK)
         {
             ESP_LOGE(TAG, "spi_slave_initialize failed");
